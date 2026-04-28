@@ -36,21 +36,10 @@ body:not(.intro-done) {
     overflow: hidden;
 }
 
-/* Hide the app until intro completes */
+/* App stays visible; intro overlay covers it until removed */
 .app {
-    opacity: 0;
-    visibility: hidden;
-}
-
-@keyframes appReveal {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-body.intro-done .app {
     opacity: 1;
-    visibility: visible;
-    animation: appReveal 700ms var(--anim-ease) both;
+    transform: none;
 }
 
 /* --- INTRO OVERLAY --- */
@@ -974,6 +963,8 @@ body.intro-done .app {
     .nav-bar {
         position: relative;
         background: var(--dark);
+        animation: none;
+        transform: none;
     }
 }
 

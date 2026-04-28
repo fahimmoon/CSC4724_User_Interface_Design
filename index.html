@@ -329,28 +329,7 @@
 
 </div>
 
-<script>
-(() => {
-    const intro = document.getElementById('intro');
-    const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    const finish = () => {
-        document.body.classList.add('intro-done');
-        if (!intro) return;
-        intro.classList.add('intro--hide');
-        intro.addEventListener('transitionend', () => intro.remove(), { once: true });
-    };
-
-    if (prefersReduced) {
-        finish();
-        return;
-    }
-
-    window.addEventListener('load', () => {
-        window.setTimeout(finish, 1800);
-    });
-})();
-</script>
+<script src="script.js" defer></script>
 
 
 
