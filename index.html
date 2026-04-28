@@ -10,6 +10,16 @@
 </head>
 
 <body>
+
+<div class="intro" id="intro" aria-hidden="true">
+    <div class="intro-inner">
+        <div class="intro-logo">KUNGFU<span>PANDA</span></div>
+        <p class="intro-tagline">Training your responsive UI…</p>
+        <div class="intro-bar" role="presentation"><span></span></div>
+    </div>
+</div>
+
+<div class="app" id="app">
 <div class="nav-bar">
     <div class="logo">KUNGFU<span>PANDA</span></div>
     
@@ -28,7 +38,7 @@
 
 <div class="hero-section">
     <div class="hero-content">
-        <span class="badge">New Release 2024</span>
+        <span class="badge">New Release 2026</span>
         <h1>Master Your <span>Creative</span> Potential</h1>
         <p>Experience the blend of ancient wisdom and modern design. Our platform provides the tools you need to build stunning responsive interfaces.</p>
         <div class="hero-btns">
@@ -316,6 +326,31 @@
         </footer>
     </div>
 </section>
+
+</div>
+
+<script>
+(() => {
+    const intro = document.getElementById('intro');
+    const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const finish = () => {
+        document.body.classList.add('intro-done');
+        if (!intro) return;
+        intro.classList.add('intro--hide');
+        intro.addEventListener('transitionend', () => intro.remove(), { once: true });
+    };
+
+    if (prefersReduced) {
+        finish();
+        return;
+    }
+
+    window.addEventListener('load', () => {
+        window.setTimeout(finish, 1800);
+    });
+})();
+</script>
 
 
 
